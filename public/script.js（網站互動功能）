@@ -1,0 +1,38 @@
+const courses = [
+  { id: 1, title: "HTML 入門", day: 1, topic: "前端開發", description: "學習 HTML 標籤與結構。", image: "images/html.jpg" },
+  { id: 2, title: "CSS 基礎", day: 2, topic: "前端開發", description: "學習 CSS 選擇器與樣式設定。", image: "images/css.jpg" },
+  { id: 3, title: "Python 入門", day: 1, topic: "程式設計", description: "學習 Python 基礎語法。", image: "images/python.jpg" }
+];
+
+function renderCourses(list) {
+  const container = document.getElementById('courseList');
+  container.innerHTML = "";
+  list.forEach(course => {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'course-item';
+    itemDiv.innerHTML = `
+      <h3>${course.title}</h3>
+      <p>${course.description}</p>
+      <img src="${course.image}" class="course-img" alt="${course.title}">
+    `;
+    container.appendChild(itemDiv);
+  });
+
+  document.querySelectorAll('.course-img').forEach(img => {
+    img.addEventListener('click', () => showModal(img.src));
+  });
+}
+
+function showModal(imgSrc) {
+  document.getElementById('modalImg').src = imgSrc;
+  document.getElementById('imgModal').style.display = "block";
+}
+
+function hideModal() {
+  document.getElementById('imgModal').style.display = "none";
+}
+
+document.getElementById('closeBtn').addEventListener('click', hideModal);
+document.getElementById('imgModal').addEventListener('click', hideModal);
+
+renderCourses(courses);
