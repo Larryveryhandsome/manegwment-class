@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>課程筆記網站</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>📚 課程筆記網站</h1>
+
+  <!-- 🔍 搜尋與篩選區域 -->
+  <div id="filters">
+    <label for="dayFilter">選擇天數：</label>
+    <select id="dayFilter">
+      <option value="all">全部</option>
+    </select>
+
+    <label for="topicFilter">選擇主題：</label>
+    <select id="topicFilter">
+      <option value="all">全部</option>
+    </select>
+
+    <label for="searchInput">搜尋：</label>
+    <input type="text" id="searchInput" placeholder="輸入關鍵字...">
+    <button id="searchBtn">搜尋</button>
+  </div>
+
+  <!-- 📖 課程列表 -->
+  <div id="courseList"></div>
+
+  <!-- 🖼️ 圖片放大檢視 -->
+  <div id="imgModal">
+    <span id="closeBtn">&times;</span>
+    <img id="modalImg" src="" alt="課程圖片">
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
